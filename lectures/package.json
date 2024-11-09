@@ -1,0 +1,24 @@
+{
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "name": "lectures",
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "prebuild": "npm run prebuild --workspaces --if-present",
+    "pretest": "npm run prebuild --workspaces --if-present",
+    "start": "npm start --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "install-dfx": "sh -ci \"$(curl -fsSL https://internetcomputer.org/install.sh)\"",
+    "source-env": ". \"$HOME/.local/share/dfx/env\"",
+    "install-deps": "cd src/lectures_frontend && npm install",
+    "install-vite": "cd src/lectures_frontend && npm install vite --save-dev",
+    "setup": "npm run install-dfx && npm run source-env && npm run install-deps && npm run install-vite"
+
+  },
+  "type": "module",
+  "workspaces": [
+    "src/lectures_frontend"
+  ]
+}
